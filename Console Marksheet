@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Console_marksheet_iheritance
+{
+    class a
+    {
+        public int m1, m2, m3, tot, pr;
+      public string r, g;
+
+    }
+    class b : a
+    {
+        public void getm()
+        {
+            Console.WriteLine("Enter m 1");
+            m1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter m 2");
+            m2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter m 3");
+            m3 = Convert.ToInt32(Console.ReadLine());
+        }
+    }
+    class c : b
+    {
+        public void res()
+        {
+            tot = m1+m2 + m3;
+            Console.WriteLine("total is :"+tot);
+           
+            if (m1 >=40 && m2>=40 && m3 >=40)
+            {
+                r= "pass";
+                Console.WriteLine("Res is :"+r);
+                pr = tot / 3;
+                Console.WriteLine("percantage is :"+pr);
+                if (pr >=70)
+                {
+                    g = "Dist";
+                    Console.WriteLine("Grad is :"+g);
+                }
+                else if (pr >=60)
+                {
+                    g = "First";
+                    Console.WriteLine("Grad is :" + g); 
+                }
+                else if (pr >=50)
+                {
+                    g = "Second ";
+                    Console.WriteLine("Grad is :" + g);
+                }
+                else
+                {
+                    g = "Third";
+                    Console.WriteLine("Grad is :" + g);
+                }
+
+            }
+            else
+            {
+               g = " Fail";
+                Console.WriteLine(g);
+            }
+          
+           
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            c c = new c();
+           
+            c.getm();
+            c.res();
+            Console.Read();
+        }
+    }
+}
