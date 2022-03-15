@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace rectangle_arrya_Dynamic_1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int r, c, i, sum = 0, mul = 1; ;
+            Console.WriteLine("Enter rows :");
+            r = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter Colom");
+            c = Convert.ToInt32(Console.ReadLine());
+
+            int[,] array = new int[r, c];
+                for(i=0;i<r; i++)
+            {
+                for(int j = 0;j<c; j++)
+                {
+                    Console.WriteLine("Enter val :");
+                    array[i,j] = Convert.ToInt32(Console.ReadLine());
+                    if(array[i,j]%2 == 0)
+                    {
+                        mul = mul * array[i,j];
+                    }
+                    else
+                    {
+                        sum= sum + array[i,j];
+                    }
+                }
+            }
+            Console.WriteLine("Sum is :" + sum);
+            Console.WriteLine("mul is :" + mul);
+            Console.Read();
+        }
+    }
+}
