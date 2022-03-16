@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace polimorphisum1_
+{
+    class a
+    {
+       public string snm, course,mno,div;
+      public  int  rlno;
+    }
+    class b : a
+    {
+        public void get()
+        {
+            Console.WriteLine("Enter nm");
+            snm = Console.ReadLine();
+            Console.WriteLine("Enter course");
+
+            course = Console.ReadLine();
+            Console.WriteLine("Enter mno ");
+            mno = Console.ReadLine();
+            Console.WriteLine("Enter div");
+            div = Console.ReadLine();
+            Console.WriteLine("Enter rlno");
+            rlno = Convert.ToInt32(Console.ReadLine());
+        }
+    }
+    class c : a
+    {
+        public void get()
+        {
+            
+            Console.WriteLine("Yoour nm is :"+snm);
+            Console.WriteLine("Yoour course is :"+course);
+            Console.WriteLine("Yoour mno is :"+mno);
+            Console.WriteLine("Yoour div is :"+div);
+            Console.WriteLine("Yoour rlno is :"+rlno);
+        }
+    }
+    internal class Program
+    {
+       
+
+        static void Main(string[] args)
+        {
+            a a = new a();
+
+            b b = new b();
+            b.get();
+
+            c c = new c();
+            c.get();
+            Console.Read();
+        }
+    }
+}
