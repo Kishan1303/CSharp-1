@@ -22,7 +22,7 @@ namespace CreateDb
         public Form1()
         {
             InitializeComponent();
-            //this.Controls.Add(cmddt);
+           // this.Controls.Add(cmddt);
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -37,44 +37,11 @@ namespace CreateDb
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            int y = 180;
-            fieldcount = Convert.ToInt32(textBox2.Text);
-            for (int i = 1; i <= fieldcount; i++)
-            {
-                y += 35;
-                textfilenm = new TextBox();
-                textfilenm.Name = "textfilenm " + i.ToString();
-                this.Controls.Add(textfilenm);
-                textfilenm.Width = 123;
-                textfilenm.Height = 30;
-                textfilenm.Location = new System.Drawing.Point(12, y);
-
-                cmddt = new ComboBox();
-                cmddt.Name = "cmddt" + i.ToString();
-                cmddt.TextChanged += new EventHandler(ShowMsg);
-                this.Controls.Add(cmddt);
-                cmddt.Items.Add("varchar");
-                cmddt.Items.Add("int");
-                cmddt.Height = 30;
-                cmddt.Width = 123;
-                cmddt.Location = new System.Drawing.Point(252, y);
-
-                textsize = new TextBox();
-                textsize.Name = "textsize " + i.ToString();
-                this.Controls.Add(textsize);
-                textsize.Width = 123;
-                textsize.Height = 30;
-                textsize.Location = new System.Drawing.Point(452, y);
-
-            }
-        }
-
+       
         private void button2_Click(object sender, EventArgs e)
         {
             String field = "";
-            int fieldcount = Convert.ToInt32(textBox2.Text);
+         //   fieldcount = Convert.ToInt32(textBox2.Text);
             int i;
             if (textfilenm.Text != "" && cmddt.Text != "")
             {
@@ -84,16 +51,16 @@ namespace CreateDb
                 {
                     if (this.Controls["cmddt" + i.ToString()].Text == "varchar")
                     {
-                        if (this.Controls["textsize " + i.ToString()].Text != "")
+                        if (this.Controls["textsize" + i.ToString()].Text != "")
                         {
                             check = 1;
                             if (i == fieldcount)
                             {
-                                field += this.Controls["textfilenm" + i.ToString()].Text + "" + this.Controls["cmddt" + i.ToString()].Text + "(" + this.Controls["textsize" + i.ToString()].Text + ")";
+                                field += this.Controls["textfilenm" + i.ToString()].Text + " " + this.Controls["cmddt" + i.ToString()].Text + "(" + this.Controls["textsize" + i.ToString()].Text + ")";
                             }
                             else
                             {
-                                field += this.Controls["textfilenm" + i.ToString()].Text + "" + this.Controls["cmddt" + i.ToString()].Text + "(" + this.Controls["textsize" + i.ToString()].Text + "),";
+                                field += this.Controls["textfilenm" + i.ToString()].Text + " " + this.Controls["cmddt" + i.ToString()].Text + "(" + this.Controls["textsize" + i.ToString()].Text + "),";
                             }
                         }
                         else
@@ -109,11 +76,11 @@ namespace CreateDb
 
                         if (i == fieldcount)
                         {
-                            field += this.Controls["textfilenm" + i.ToString()].Text + "" + this.Controls["cmddt" + i.ToString()].Text;
+                            field += this.Controls["textfilenm" + i.ToString()].Text + " " + this.Controls["cmddt" + i.ToString()].Text;
                         }
                         else
                         {
-                            field += this.Controls["textfilenm" + i.ToString()].Text + "" + this.Controls["cmddt" + i.ToString()].Text + ",";
+                            field += this.Controls["textfilenm" + i.ToString()].Text + " " + this.Controls["cmddt" + i.ToString()].Text + ",";
                         }
 
                     }
@@ -150,5 +117,41 @@ namespace CreateDb
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int y = 180;
+            fieldcount = Convert.ToInt32(textBox2.Text);
+            for (int i = 1; i <= fieldcount; i++)
+            {
+                y += 35;
+                textfilenm = new TextBox();
+                this.Controls.Add(textfilenm);
+                textfilenm.Name = "textfilenm" + i.ToString();
+
+                textfilenm.Width = 123;
+                textfilenm.Height = 30;
+                textfilenm.Location = new System.Drawing.Point(12, y);
+
+                cmddt = new ComboBox();
+                cmddt.Name = "cmddt" + i.ToString();
+                cmddt.TextChanged += new EventHandler(ShowMsg);
+                this.Controls.Add(cmddt);
+                cmddt.Items.Add("varchar");
+                cmddt.Items.Add("int");
+                cmddt.Height = 30;
+                cmddt.Width = 123;
+                cmddt.Location = new System.Drawing.Point(252, y);
+
+                textsize = new TextBox();
+                textsize.Name = "textsize" + i.ToString();
+                this.Controls.Add(textsize);
+                textsize.Width = 123;
+                textsize.Height = 30;
+                textsize.Location = new System.Drawing.Point(452, y);
+
+            }
+        }
     }
 }
+
